@@ -1,0 +1,22 @@
+<h1>Ventas</h1>
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Precio</th>
+        <th>Comprador</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @purchases.each do |purchase| %>
+        <tr>
+          <td><%= purchase.name %></td>
+          <td><%= purchase.price %></td>
+          <td><%= User.find(purchase.user_id).name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

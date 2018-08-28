@@ -1,9 +1,11 @@
+Link a Trello.com:  https://trello.com/b/DkKkE0GY/yape
+
 # Experiencia 18 - Actividad Presencial I
 ## SCRUM - Agilidad
 
 El objetivo de esta actividad es aprender a generar historias de usuario a partir de los requisitos solicitados por un cliente,  generar un tablero de Trello con estas historias e implementar las funcionalidades en Rails basándose en el tablero.
 
-## Ejercicio 1: 
+## Ejercicio 1:
 
 #### Cuando se tiene una conversación con un cliente, es muy importante registrar la conversación para poder obtener información útil de ella. Es por eso que nuestro Desarrollador Genial registró su conversación telefónica con un Cliente Malvado.
 
@@ -28,6 +30,6 @@ El objetivo de esta actividad es aprender a generar historias de usuario a parti
 - **CM:** Gracias! Adiós!
 - **DG:** Adiós!
 
-#### Una vez generadas las historias de usuario deben ser organizadas en un tablero ágil en la plataforma Trello. 
+#### Una vez generadas las historias de usuario deben ser organizadas en un tablero ágil en la plataforma Trello.
 
 #### Luego de generado el tablero ágil, el proyecyo debe ser implementado en Ruby on Rails.

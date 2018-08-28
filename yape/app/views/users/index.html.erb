@@ -1,0 +1,20 @@
+<h1>Compras</h1>
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @purchases.each do |purchase| %>
+        <tr>
+          <td><%= purchase.name %></td>
+          <td><%= purchase.price %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

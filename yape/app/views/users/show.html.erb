@@ -1,0 +1,17 @@
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><%= @user.name %></td>
+          <td><%= @user.email %></td>
+        </tr>
+    </tbody>
+  </table>
+  <%= link_to 'Volver', root_path, class: 'btn btn-secondary' %>
+</div>

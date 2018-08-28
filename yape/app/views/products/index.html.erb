@@ -1,0 +1,43 @@
+<% if alert.present? %>
+  <div class="container">
+    <div class="alert alert-success alert-dismissible" id="myAlert">
+      <button type="button" class="close">&times;</button>
+      <strong>Felicitaciones! </strong> <%= alert %>
+    </div>
+  </div>
+<% end %>
+
+<h1>Products</h1>
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th colspan="3">User</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%= product.description %></td>
+          <td><%= product.price %></td>
+          <td><%= link_to product.user.name, user_path(product.user_id) %></td>
+          <td><%= link_to 'Show', product, class: 'btn btn-primary btn-block' %></td>
+          <% if current_user.try(:id) != product.user_id %>
+            <td><%= link_to 'Comprar', product_sale_path(product), method: :delete, data: { confirm: 'Esta seguro?' }, class: 'btn btn-warning btn-block' %></td>
+          <% end %>
+          <% if user_signed_in? %>
+            <% if current_user.id == product.user_id %>
+              <td><%= link_to 'Edit', edit_product_path(product), class: 'btn btn-secondary btn-block' %></td>
+              <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-block'%></td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
