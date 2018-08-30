@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy, :sale]
-  before_action :owner?, only: [:edit, :destroy]
-  before_action :authenticate_user?, only: :sale
+  before_action :authenticate_user?, except: [:index, :show]
 
   # GET /products
   # GET /products.json
@@ -21,6 +20,9 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    if !@product.owner?(current_user)
+      redirect_to root_path, alert: 'No tiene autorizacion para esta accion.'
+    end
   end
 
   # POST /products
@@ -56,6 +58,9 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
+    if !@product.owner?(current_user)
+      redirect_to root_path, alert: 'No tiene autorizacion para esta accion.'
+    end
     @product.destroy
     respond_to do |format|
       format.html { redirect_to products_url, alert: 'Product was successfully destroyed.' }

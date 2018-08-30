@@ -7,4 +7,8 @@ class Product < ApplicationRecord
       Purchase.create(name: self.name, price: self.price, user_id: User.current.id)
     end
   end
+
+  def owner?(user = User.new)
+    user.id == self.user_id
+  end
 end
